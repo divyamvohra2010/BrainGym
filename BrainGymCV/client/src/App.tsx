@@ -1,35 +1,10 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import Home from "@/pages/Home";
-import Exercise from "@/pages/Exercise";
-import Leaderboard from "@/pages/Leaderboard";
-import Results from "@/pages/Results";
-import NotFound from "@/pages/not-found";
+import React from "react";
 
-function Router() {
+export default function App() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/exercise/:exerciseId" component={Exercise} />
-      <Route path="/results/:exerciseId/:points" component={Results} />
-      <Route path="/leaderboard" component={Leaderboard} />
-      <Route component={NotFound} />
-    </Switch>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>🧠 BrainGymCV</h1>
+      <p>Welcome to your AI-powered project!</p>
+    </div>
   );
 }
-
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-}
-
-export default App;
